@@ -10,7 +10,11 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 mongoose.set('strictQuery', false)
-mongoose.connect("mongodb+srv://akshit2042:mydream%402042@cluster0.nu4jrpy.mongodb.net/todolistDB",{useNewUrlParser: true})
+mongoose.connect("mongodb+srv://akshit2042:mydream%402042@cluster0.nu4jrpy.mongodb.net/todolistDB",{useNewUrlParser: true}).then(
+  app.listen(process.env.PORT || 3000, function() {
+    console.log("Server started on port 3000");
+  })
+);
 
 
 const itemSchema={
